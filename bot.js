@@ -6,6 +6,8 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\why$/;
+  var request2 = JSON.parse(this.req.chunks[0]),
+      botRegex2 = /^\cat$/;
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -16,6 +18,32 @@ function respond() {
     this.res.writeHead(200);
     this.res.end();
   }
+  
+  if(request2.text && botRegex2.test(request2.text)) {
+    this.res.writeHead(200);
+    postMessage2();
+    this.res.end();
+  } else {
+    console.log("don't care");
+    this.res.writeHead(200);
+    this.res.end();
+  }
+}
+
+function postMessage2() {
+	var botResp, option, bod, botR;
+	
+	botResp = "http://i.imgur.com/2Uqlxkd.jpg";
+	
+	options = {
+    hostname: 'api.groupme.com',
+    path: '/v3/bots/post',
+    method: 'POST'
+	};
+
+  body = {
+    "bot_id" : botID,
+    "text" : botResponse
 }
 
 function postMessage() {
