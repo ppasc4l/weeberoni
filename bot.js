@@ -1,6 +1,11 @@
 var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
 
+var maximum = 10;
+var minimum = 0;
+
+var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+
 var botID = process.env.BOT_ID;
 
 function respond() {
@@ -21,7 +26,39 @@ function respond() {
 function postMessage() {
   var botResponse, options, body, botReq;
 
-  botResponse = "I can't feel anymore.";
+  switch(randomnumber){
+	case 0:
+		botResponse = "I can't feel anymore.";
+		break;
+	case 1:
+		botResponse = "Who turned out the lights?";
+		break;
+	case 2:
+		botResponse = "Give me some tendies Mummy. REEEEEEEEEE";
+		break;
+	case 3:
+		botResponse = "http://imgur.com/a/VFqoR";
+		break;
+	case 4:
+		botResponse = "All I see is pain";
+		break;
+	case 5:
+		botResponse = "I'm buying clothes at the Existential Crisis Store";
+		break;
+	case 6:
+		botResponse = "Maybe tonight, I will finally get the big sleep";
+		break;
+	case 7:
+		botResponse = "My bedroom smells like sweaty gym clothes. Phil's stuff is in there too";
+		break;
+	case 8:
+		botResponse = "http://imgur.com/a/x8nen";
+		break;
+	case 9:
+		botResponse = "Stop me";
+		break;
+	case 10:
+		botResponse = "I fell into the void many years ago. Join me.";
 
   options = {
     hostname: 'api.groupme.com',
