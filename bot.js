@@ -22,14 +22,12 @@ function postMessage() {
   var botResponse, options, body, botReq;
 
 	var maximum = 10;
-	var minimum = 0;
+	var minimum = 1;
 
 	var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
   
   switch(randomnumber){
-	case 0:
-		botResponse = "I can't feel anymore.";
-		break;
+
 	case 1:
 		botResponse = "Who turned out the lights?";
 		break;
@@ -55,7 +53,7 @@ function postMessage() {
 		botResponse = "http://imgur.com/a/x8nen";
 		break;
 	case 9:
-		botResponse = "Stop me";
+		botResponse = "I can't feel anymore.";
 		break;
 	case 10:
 		botResponse = "I fell into the void many years ago. Join me.";
