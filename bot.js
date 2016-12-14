@@ -57,6 +57,8 @@ function postMessage() {
 		break;
 	case 10:
 		botResponse = "I fell into the void many years ago. Join me.";
+		break;
+  }
 
   options = {
     hostname: 'api.groupme.com',
