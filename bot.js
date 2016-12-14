@@ -5,9 +5,7 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\why$/;
-  var request2 = JSON.parse(this.req.chunks[0]),
-      botRegex2 = /^\cat$/;
+      botRegex = /^\why$/, botRegex2 = /^\cat$/;
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -19,7 +17,7 @@ function respond() {
     this.res.end();
   }
   
-  if(request2.text && botRegex2.test(request2.text)) {
+  if(request.text && botRegex2.test(request.text)) {
     this.res.writeHead(200);
     postMessage2();
     this.res.end();
