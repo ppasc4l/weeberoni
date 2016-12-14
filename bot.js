@@ -1,11 +1,6 @@
 var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
 
-var maximum = 10;
-var minimum = 0;
-
-var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-
 var botID = process.env.BOT_ID;
 
 function respond() {
@@ -26,6 +21,11 @@ function respond() {
 function postMessage() {
   var botResponse, options, body, botReq;
 
+	var maximum = 10;
+	var minimum = 0;
+
+	var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+  
   switch(randomnumber){
 	case 0:
 		botResponse = "I can't feel anymore.";
