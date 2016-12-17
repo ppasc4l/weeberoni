@@ -36,7 +36,7 @@ function postMessage() {
 		botResponse = "Give me some tendies Mummy. REEEEEEEEEE";
 		break;
 	case 3:
-		botResponse = "http://imgur.com/a/VFqoR";
+		botResponse = "All you need is love, something I don't have.";
 		break;
 	case 4:
 		botResponse = "All I see is pain";
@@ -51,7 +51,7 @@ function postMessage() {
 		botResponse = "My bedroom smells like sweaty gym clothes. Phil's stuff is in there too";
 		break;
 	case 8:
-		botResponse = "http://imgur.com/a/x8nen";
+		botResponse = "Let me lather you up in my Donkey Sauce and take you to Flavortown";
 		break;
 	case 9:
 		botResponse = "I can't feel anymore.";
