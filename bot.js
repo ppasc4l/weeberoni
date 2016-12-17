@@ -22,7 +22,7 @@ function respond() {
 function postMessage() {
   var botResponse, options, body, botReq;
 
-	var maximum = 10;
+	var maximum = 20;
 	var minimum = 1;
 
 	var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
