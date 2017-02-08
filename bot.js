@@ -9,17 +9,17 @@ function respond() {
 	  botR = /^\Gymsock$/;
 	
 	  
-  if(request && botRegex.test(request.text)) {
+  if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage();
     this.res.end();
   } 
-  else if(request && botReg.test(request.text)) {
+  else if(request.text && botReg.test(request.text)) {
 	this.res.writeHead(200);
 	postMessage();
     this.res.end();
   }
-  else if(request && botReg.test(request.text)) {
+  else if(request.text && botReg.test(request.text)) {
 	this.res.writeHead(200);
     postMessage();
     this.res.end();
