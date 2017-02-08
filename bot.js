@@ -5,13 +5,10 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\GYMSOCK$/;
-
-  var answer = request.text;
-  var answerUp = answer.toUpperCase();
+      botRegex = /^\GYMSOCK$/ || /^\gymsock$/ || /^\Gymsock$/;
 	
 	  
-  if(answerUp && botRegex.test(request.text)) {
+  if(request && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage();
     this.res.end();
