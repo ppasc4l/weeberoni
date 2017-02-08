@@ -5,14 +5,26 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\GYMSOCK$/ || /^\gymsock$/ || /^\Gymsock$/;
+      botRegex = /^\GYMSOCK$/, botReg = /^\gymsock$/;,
+	  botR = /^\Gymsock$/;
 	
 	  
   if(request && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage();
     this.res.end();
-  } else {
+  } 
+  else if(request && botReg.test(request.text)) {
+	this.res.writeHead(200);
+	postMessage();
+    this.res.end();
+  }
+  else if(request && botReg.test(request.text)) {
+	this.res.writeHead(200);
+    postMessage();
+    this.res.end();
+  }
+  else {
     console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
