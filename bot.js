@@ -8,7 +8,7 @@ function respond() {
       botRegex = /^\GYMSOCK$/;
 
 	  
-  if(request.text.toUpperCase() && botRegex.test(request.text)) {
+  if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage();
     this.res.end();
