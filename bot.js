@@ -6,7 +6,7 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\GYMSOCK$/, botReg = /^\gymsock$/,
-	  botR = /^\Gymsock$/;
+	  botR = /^\Gymsock$/, botReturn = /^\tendies$/;
 	
 	  
   if(request.text && botRegex.test(request.text)) {
@@ -41,12 +41,23 @@ function respond() {
     this.res.writeHead(200);
     this.res.end();
   }
+  
+  if(request.text && botReturn.test(request.text)) {
+	this.res.writeHead(200);
+	tendiesFunc();
+    this.res.end();
+  }
+  else {
+    console.log("don't care");
+    this.res.writeHead(200);
+    this.res.end();
+  }
 }
 
 function postMessage() {
   var botResponse, options, body, botReq;
 
-	var maximum = 20;
+	var maximum = 30;
 	var minimum = 1;
 
 	var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
@@ -72,7 +83,7 @@ function postMessage() {
 		botResponse = "Maybe tonight, I will finally get the big sleep";
 		break;
 	case 7:
-		botResponse = "My bedroom smells like sweaty gym clothes. Phil's stuff is in there too";
+		botResponse = "My bedroom smells like sweaty gym clothes. Phil's stuff is gone, I have no excuse.";
 		break;
 	case 8:
 		botResponse = "Let me lather you up in my Donkey Sauce and take you to Flavortown";
@@ -113,6 +124,42 @@ function postMessage() {
 	case 20:
 		botResponse = "Show those haters how its done by hating yourself most.";
 		break;
+	case 21:
+		botResponse = "https://www.youtube.com/watch?v=1Bix44C1EzY";
+		break;
+	case 22:
+		botResponse = "Cory in the House has no purpose, but it also has ALL of the purpose.";
+		break;
+	case 23:
+		botResponse = "Batt Markofske profitted off of the Skeleton War.";
+		break;
+	case 24:
+		botResponse = "Catt Moleman is my idol.";
+		break;
+	case 25:
+		botResponse = "'My entire life is like that feeling you get in your teeth when you floss for the first time in like, a week after forgetting' -@DadViehmann";
+		break;
+	case 26:
+		botResponse = "Wow :^)";
+		break;
+	case 27:
+		botResponse = "https://youtu.be/ba7DEM7Trn8";
+		break;
+	case 28:
+		botResponse = "Choo Choo, All Aboard the Depression Train! Next stop, the bottom of a canyon!";
+		break;
+	case 29:
+		botResponse = "I love each and every member of TKE except for myself";
+		break;
+	case 30:
+		botResponse = "Flintstones, Meet the Flintstones";
+		break;
+  }
+  
+  function tendiesFunc() {
+	  var botResponse;
+	  
+	  botResponse = "https://www.youtube.com/watch?v=7ERzPFCE7B0";
   }
 
   options = {
