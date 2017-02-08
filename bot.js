@@ -7,7 +7,6 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\GYMSOCK$/, botReg = /^\gymsock$/,
 	  botR = /^\Gymsock$/, botReturn = /^\tendies$/;
-	
 	  
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -44,7 +43,7 @@ function respond() {
   
   if(request.text && botReturn.test(request.text)) {
 	this.res.writeHead(200);
-	tendiesFunc();
+	postMessage();
     this.res.end();
   }
   else {
@@ -57,7 +56,7 @@ function respond() {
 function postMessage() {
   var botResponse, options, body, botReq;
 
-	var maximum = 30;
+	var maximum = 31;
 	var minimum = 1;
 
 	var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
@@ -154,6 +153,9 @@ function postMessage() {
 	case 30:
 		botResponse = "Flintstones, Meet the Flintstones";
 		break;
+	case 31:
+		botResponse = "https://www.youtube.com/watch?v=7ERzPFCE7B0";
+		break;
   }
 
   options = {
@@ -186,39 +188,6 @@ function postMessage() {
   botReq.end(JSON.stringify(body));
 }
 
-function tendiesFunc() {
-	  var botResponse;
-	  
-	  botResponse = "https://www.youtube.com/watch?v=7ERzPFCE7B0";
-	  
-	options = {
-    hostname: 'api.groupme.com',
-    path: '/v3/bots/post',
-    method: 'POST'
-	};
 
-  body = {
-    "bot_id" : botID,
-    "text" : botResponse
-  };
-
-  console.log('sending ' + botResponse + ' to ' + botID);
-
-  botReq = HTTPS.request(options, function(res) {
-      if(res.statusCode == 202) {
-        //neat
-      } else {
-        console.log('rejecting bad status code ' + res.statusCode);
-      }
-  });
-
-  botReq.on('error', function(err) {
-    console.log('error posting message '  + JSON.stringify(err));
-  });
-  botReq.on('timeout', function(err) {
-    console.log('timeout posting message '  + JSON.stringify(err));
-  });
-  botReq.end(JSON.stringify(body));
-  }
 
 exports.respond = respond;
