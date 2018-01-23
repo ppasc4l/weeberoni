@@ -5,8 +5,8 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\GYMSOCK$/, botReg = /^\gymsock$/,
-	  botR = /^\Gymsock$/, botReturn = /^\tendies$/;
+      botRegex = /^\!PREVIEW$/, botReg = /^\!Preview$/,
+	  botR = /^\!preview$/, botReturn = /^\weeb$/;
 	  
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -155,10 +155,10 @@ function postMessage() {
 		break;
 	case 31:
 		botResponse = "https://www.youtube.com/watch?v=7ERzPFCE7B0";
-                break;
-        case 32: 
-                botResponse = "Me Me Big Boy";
-                break;
+        break;
+    case 32: 
+        botResponse = "Me Me Big Boy";
+        break;
   }
 
   options = {
